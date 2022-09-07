@@ -27,14 +27,18 @@ end
 def merge(left, right)
     merged = []
     until left.empty? || right.empty?
-        if left[0].length < right[0].length
-            merged << left.shift
-        else 
+        if left[0].length > right[0].length
             merged << right.shift
+        else 
+            merged << left.shift
         end
     end
     merged + left + right
 end
+
+# def call_octpussy(arr)
+#     arr.last
+# end
 
 def clever_octopus(arr)
     fish = arr.shift
@@ -54,17 +58,18 @@ def const_dance(command, arr)
     arr.index(command)
 end
 
-# arr = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish', 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh']
+arr = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish', 'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh']
 # p sluggish_octopus(arr) #=> "fiiiissshhhhhh"
-# p dominant_octopus(arr)
+new_arr = dominant_octopus(arr)
+p call_octpussy(new_arr)
 # p clever_octopus(arr)
 
-tiles_array = ["up", "right-up", "right", "right-down", "down", "left-down", "left", "left-up" ]
-p slow_dance("up", tiles_array)
+# tiles_array = ["up", "right-up", "right", "right-down", "down", "left-down", "left", "left-up" ]
+# p slow_dance("up", tiles_array)
 
-p slow_dance("right-down", tiles_array)
+# p slow_dance("right-down", tiles_array)
 
-p const_dance("up", tiles_array) #0
+# p const_dance("up", tiles_array) #0
 
 
-p const_dance("right-down", tiles_array) #3
+# p const_dance("right-down", tiles_array) #3
